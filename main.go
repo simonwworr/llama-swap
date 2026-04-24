@@ -24,7 +24,9 @@ func main() {
 	// making it easier to use as a drop-in replacement in my local setup.
 	flag.StringVar(&listenAddr, "listen", ":11434", "address to listen on (host:port)")
 	flag.BoolVar(&showVersion, "version", false, "print version and exit")
-	flag.BoolVar(&logRequests, "log-requests", false, "log all incoming requests")
+	// Enabling request logging by default so I can see what's hitting the proxy
+	// during development without needing to remember to pass the flag each time.
+	flag.BoolVar(&logRequests, "log-requests", true, "log all incoming requests")
 	flag.Parse()
 
 	if showVersion {
