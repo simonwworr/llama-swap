@@ -43,6 +43,8 @@ func main() {
 	log.Printf("llama-swap v%s starting", version)
 	log.Printf("listening on %s", listenAddr)
 	log.Printf("loaded %d model(s) from config", len(cfg.Models))
+	// Print a reminder about the config file location so it's easy to spot in logs.
+	log.Printf("using config file: %s", configPath)
 
 	// Create and start the proxy server
 	server, err := proxy.NewServer(cfg, proxy.ServerOptions{
