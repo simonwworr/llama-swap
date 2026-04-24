@@ -20,7 +20,9 @@ func main() {
 	)
 
 	flag.StringVar(&configPath, "config", "config.yaml", "path to configuration file")
-	flag.StringVar(&listenAddr, "listen", ":8080", "address to listen on (host:port)")
+	// Changed default port from 8080 to 11434 to match Ollama's default port,
+	// making it easier to use as a drop-in replacement in my local setup.
+	flag.StringVar(&listenAddr, "listen", ":11434", "address to listen on (host:port)")
 	flag.BoolVar(&showVersion, "version", false, "print version and exit")
 	flag.BoolVar(&logRequests, "log-requests", false, "log all incoming requests")
 	flag.Parse()
