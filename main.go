@@ -45,6 +45,10 @@ func main() {
 	log.Printf("loaded %d model(s) from config", len(cfg.Models))
 	// Print a reminder about the config file location so it's easy to spot in logs.
 	log.Printf("using config file: %s", configPath)
+	// Print each loaded model name so I can quickly verify the config was parsed correctly.
+	for name := range cfg.Models {
+		log.Printf("  model: %s", name)
+	}
 
 	// Create and start the proxy server
 	server, err := proxy.NewServer(cfg, proxy.ServerOptions{
