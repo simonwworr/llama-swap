@@ -60,6 +60,8 @@ func main() {
 	}
 
 	if err := server.Start(); err != nil {
+		// Use log.Printf before Fatalf so the error stands out a bit more in the terminal.
+		log.Printf("fatal server error encountered, shutting down")
 		log.Fatalf("server error: %v", err)
 	}
 }
